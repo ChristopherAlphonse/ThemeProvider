@@ -19,6 +19,8 @@ const Toggle = styled.button`
   top: 2rem;
   right: 2rem;
   bottom: 0;
+  margin: 0;
+  padding: 0;
 `;
 
 const Page = styled.div`
@@ -34,13 +36,16 @@ const Wrap = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0;
+  padding: 0;
 `;
 
 const Title = styled.h1`
   color: ${(props) => props.theme.primaryText};
   transition: all 0.5s ease;
   font-size: 15rem;
-  margin-bottom: 0.5rem;
+  margin: 0;
+  padding: 0;
 `;
 
 const TagLine = styled.span`
@@ -69,9 +74,7 @@ const Splash = (props) => {
     <Page>
       <Wrap>
         <Title>
-          <span style={{ letterSpacing: "9rem", textAlign: "center" }}>
-            MARCX
-          </span>
+          <span style={{ letterSpacing: "9rem" }}>MARCX</span>
         </Title>
         <TagLine>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Error debitis
