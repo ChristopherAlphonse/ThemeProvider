@@ -26,12 +26,11 @@ const Page = styled.div`
   justify-content: center;
   align-items: center;
   height: 100vh;
-  width: 100%;
   background-color: ${(props) => props.theme.cardColor};
   transition: all 0.5s ease;
 `;
 
-const Container = styled.div`
+const Wrap = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -40,6 +39,8 @@ const Container = styled.div`
 const Title = styled.h1`
   color: ${(props) => props.theme.primaryText};
   transition: all 0.5s ease;
+  font-size: 15rem;
+  margin-bottom: 0.5rem;
 `;
 
 const TagLine = styled.span`
@@ -66,15 +67,19 @@ const Splash = (props) => {
 
   return (
     <Page>
-      <Container>
-        <Title>Wonder Woman</Title>
+      <Wrap>
+        <Title>
+          <span style={{ letterSpacing: "9rem", textAlign: "center" }}>
+            MARCX
+          </span>
+        </Title>
         <TagLine>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Error debitis
           dolor distinctio nisi temporibus molestias nesciunt, numquam maiores
           voluptatibus atque sint magni eligendi repudiandae quis esse natus
           consequatur! Nihil, a.
         </TagLine>
-      </Container>
+      </Wrap>
       <Toggle onClick={changeTheme}>{icon}</Toggle>
     </Page>
   );
