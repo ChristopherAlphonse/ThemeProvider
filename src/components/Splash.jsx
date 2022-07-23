@@ -8,7 +8,7 @@ const Toggle = styled.button`
   width: 50px;
   border-radius: 50%;
   border: none;
-  background-color: ${(props) => props.theme.primaryText};
+  background-color: transparent;
   color: ${(props) => props.theme.cardColor};
   &:focus {
     outline: none;
@@ -48,17 +48,21 @@ const TagLine = styled.span`
   transition: all 0.5s ease;
 `;
 
-function Splash(props) {
-  function changeTheme() {
+const Splash = (props) => {
+  const changeTheme = () => {
     if (props.theme === "light") {
       props.setTheme("dark");
     } else {
       props.setTheme("light");
     }
-  }
+  };
 
   const icon =
-    props.theme === "light" ? <HiMoon size={20} /> : <CgSun size={20} />;
+    props.theme === "light" ? (
+      <HiMoon size={30} color="#000080" />
+    ) : (
+      <CgSun size={30} color="#c69f26" />
+    );
 
   return (
     <Page>
@@ -74,6 +78,6 @@ function Splash(props) {
       <Toggle onClick={changeTheme}>{icon}</Toggle>
     </Page>
   );
-}
+};
 
 export default Splash;
