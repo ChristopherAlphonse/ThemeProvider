@@ -7,7 +7,7 @@ const DarkTheme = {
   cardColor: "#242526",
   hoverColor: "#323A46",
   primaryText: "#fff",
-  secondaryText: "#2C2C2C",
+  secondaryText: "#D1D1D1",
 };
 const LightTheme = {
   backgroundColor: "#ffff",

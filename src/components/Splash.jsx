@@ -2,35 +2,78 @@ import styled from "styled-components";
 import { CgSun } from "react-icons/cg";
 import { HiMoon } from "react-icons/hi";
 
-const Splash = (props) => {
-  const changeTheme = () => {
+const Toggle = styled.button`
+  cursor: pointer;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border: none;
+  background-color: ${(props) => props.theme.primaryText};
+  color: ${(props) => props.theme.cardColor};
+  &:focus {
+    outline: none;
+  }
+  transition: all 0.5s ease;
+  position: absolute;
+  z-index: 999;
+  top: 2rem;
+  right: 2rem;
+  bottom: 0;
+`;
+
+const Page = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background-color: ${(props) => props.theme.cardColor};
+  transition: all 0.5s ease;
+`;
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const Title = styled.h1`
+  color: ${(props) => props.theme.primaryText};
+  transition: all 0.5s ease;
+`;
+
+const TagLine = styled.span`
+  color: ${(props) => props.theme.secondaryText};
+  font-size: 18px;
+  transition: all 0.5s ease;
+`;
+
+function Splash(props) {
+  function changeTheme() {
     if (props.theme === "light") {
       props.setTheme("dark");
     } else {
       props.setTheme("light");
     }
-  };
-  const Page = styled.div``;
-  const Container = styled.div``;
-  const Toggle = styled.div`
-    cursor: pointer;
-  `;
+  }
 
   const icon =
-    props.theme === "light" ? (
-      <HiMoon size={25} color="#003366" />
-    ) : (
-      <CgSun size={25} color="#FFDD00" />
-    );
+    props.theme === "light" ? <HiMoon size={20} /> : <CgSun size={20} />;
 
   return (
     <Page>
       <Container>
-        <Toggle onClick={changeTheme}> {icon}</Toggle>
-        Hello
+        <Title>Wonder Woman</Title>
+        <TagLine>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Error debitis
+          dolor distinctio nisi temporibus molestias nesciunt, numquam maiores
+          voluptatibus atque sint magni eligendi repudiandae quis esse natus
+          consequatur! Nihil, a.
+        </TagLine>
       </Container>
+      <Toggle onClick={changeTheme}>{icon}</Toggle>
     </Page>
   );
-};
+}
 
 export default Splash;
