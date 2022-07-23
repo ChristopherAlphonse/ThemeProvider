@@ -1,27 +1,33 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useState } from "react";
+import  { ThemeProvider } from "styled-components";
+import Splash from "./components/Splash";
 
-const Wrapper = styled.div`
-  margin: 0.2rem;
-  padding: 0.2rem;
-  max-width: 69rem;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-`;
+const DarkTheme = {
+  backgroundColor: "#0D0F11",
+  cardColor: "#242526",
+  hoverColor: "#323A46",
+  primaryText: "#fff",
+  secondaryText: "#2C2C2C",
+};
+const LightTheme = {
+  backgroundColor: "#ffff",
+  cardColor: "#E7EAEE",
+  hoverColor: "#D0D5DD",
+  primaryText: "#2D2D2D",
+  secondaryText: "#72777B",
+};
 
-const Title = styled.h1`
-  font-size: 5rem;
-  font-weight: 600;
-  spacing: 1rem;
-  font-family: "sans-serif";
-`;
+const themes = {
+  light: LightTheme,
+  dark: DarkTheme,
+};
 
 const App = () => {
+  const [theme, setTheme] = useState("light");
   return (
-    <Wrapper>
-      <Title> Hello There</Title>
-    </Wrapper>
+    <ThemeProvider theme={themes[theme]}>
+      <Splash theme={theme} setTheme={setTheme} />
+    </ThemeProvider>
   );
 };
 
